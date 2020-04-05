@@ -1,0 +1,3 @@
+st=subj to 
+gmodel=#GMPL Model\n#|\n\n#Sets, Parameters and Variables\n\n#Objective\n\n#Constraints\nsubj to \n\nsolve;\n#Eventual postprocessing\n\n#Data\ndata;\n\nend;\n
+prt=printf "x = %f\\n", |x;

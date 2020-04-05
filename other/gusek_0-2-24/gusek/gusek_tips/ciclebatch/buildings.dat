@@ -1,0 +1,9 @@
+data;
+
+# param n := 3;
+# "n" will be defined in tmp.dat file
+
+param b := 3;
+param p := 1 2, 2 5, 3 10;
+
+end;

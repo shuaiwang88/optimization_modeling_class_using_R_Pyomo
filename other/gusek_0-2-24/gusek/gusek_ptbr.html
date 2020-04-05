@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>GUSEK</title>
+<meta http-equiv="Content-Type" content="text/html">
+
+<style type="text/css"><!-- 
+body,p,div,li{font-family:ubuntu,verdana,helvetica,sans-serif;font-size:11pt;}
+body{padding:20px 10%;margin:0;border-left:solid 20px #CCCCBB;}
+h2{border-bottom:solid 3px #CCCCBB;padding-top:2em;}
+h3{border-bottom:solid 2px #CCCCBB;padding-top:1em;}
+h4{margin:1.5em 0 0.5em 0;}
+h5{margin:1em 0 0 0;}
+li{margin-bottom:0.5em;}
+a{color:#554444;}
+a:hover{text-decoration:none; color:#997777;}
+a.dwnbtn{text-decoration:none;font-weight:bold;
+	background-color:#96c42b;color:#FFF;border:1px solid #83c41a;
+	display:inline-block;padding: 6px 12px;margin:0 6px;vertical-align: bottom;
+	border-radius:6px;box-shadow:inset 0px 1px 0px 0px #c1ed9c;}
+a.dwnbtn:hover{background-color:#9dce2c;}
+tt{background-color:#EEEEDF;padding:1px 5px;}
+blockquote{margin-left:20px;margin-top:10px;}
+p.nota{font-size:80%;color:#666666;}
+p.rodape{font-size:80%;color:#999999;margin:50px 0 20px 0;border-top:solid 1px #CCCCBB;text-align:right;}
+.changelog{font-size:80%;color:#999999;margin:0 0 1.2em 1em;}
+--></style>
+</head>
+<body>
+<h1>GUSEK (GLPK Under Scite Extended Kit)</h1>
+<div style="float:right;width:100px;">
+<p><a href="gusek_ptbr.html" title="Português">pt-br</a>
+ | <a href="gusek.html" title="English">us-en</a>
+</div>
+<p class=nota>©2008-2018 Luiz Bettoni &lt;bettoni@sollve.com.br&gt; 
+<p class=nota><a href="http://gusek.sourceforge.net">http://gusek.sourceforge.net</a>
+
+<h2>Sumário</h2>
+<ul>
+<li><a href="#1">Introdução</a></li>
+	<blockquote>
+	<li><a href="#11">Licença</a></li>
+	</blockquote>
+<li><a href="#2">Download e Instalação</a></li>
+<li><a href="#3">Guia Rápido de Utilização</a></li>
+	<blockquote>
+	<li><a href="#31">Interface</a></li>
+	<li><a href="#32">Modelos GMPL</a></li>
+		<blockquote>
+		<li><a href="#321">Modelo Único</a></li>
+		<li><a href="#322">Modelo Segmentado</a></li>
+		</blockquote>
+	<li><a href="#33">Modelos MPS/LP</a></li>
+	</blockquote>
+<li><a href="#4">Referências</a></li>
+<li><a href="#5">Changelog</a></li>
+</ul>
+
+<h2 id="1">Introdução</h2>
+<p>GUSEK é uma interface de desenvolvimento para modelos de Programação Linear (LP) e Programação Linear Inteira Mista (MILP). O pacote consiste em uma versão customizada do editor <a href="http://www.scintilla.org/SciTE.html">SciTE</a> integrada a uma versão pré-compilada do solver <a href="http://www.gnu.org/software/glpk">GLPK</a> para a plataforma Win32. A página oficial do GUSEK é <a href="http://gusek.sourceforge.net/">gusek.sourceforge.net</a>.
+<p>Note que o GUSEK, embora baseado em versões estáveis de programas consolidados, encontra-se em fase de desenvolvimento e testes. Eventuais problemas e sugestões devem ser reportadas para o autor.
+<h3 id="11">Licença</h3>
+<p>Este programa é software livre; você pode redistribuí-lo e/ou modificá-lo sob os termos da Licença Pública Geral GNU, conforme publicada pela Fundação do Software Livre (FSF); na versão 3 da Licença ou (a seu critério) posterior. Este programa é distribuído na esperança que possa ser  útil, mas <b>sem nenhuma garantia</b>. Veja a <a href="http://www.gnu.org/copyleft/gpl.html">Licença Pública Geral GNU</a> para maiores detalhes.
+
+<h2 id="2">Download e Instalação</h2>
+<p>O conteúdo completo do Projeto GUSEK pode ser acessado em <a href="http://sourceforge.net/projects/gusek">sourceforge.net/projects/gusek</a>. O código fonte pode ser obtido por SVN: <tt>https://gusek.svn.sourceforge.net/svnroot/gusek/trunk</tt>.
+<p><b>Para instalar o GUSEK</b>: 
+<ul>
+<li>Obtenha a versão mais recente no sourceforge: <a href="http://sourceforge.net/projects/gusek/files/latest/download" target="_blank"class="dwnbtn">Download GUSEK</a></li>
+<li>Descompacte o arquivo em um diretório de sua preferência (o GUSEK é uma aplicação <i>portable</i>)</li>
+<li>Abra a interface executando o arquivo <tt>gusek.exe</tt></li>
+</ul>
+<p><i>Observação</i>: É possível integrar o GUSEK ao menu de contexto do Windows Explorer, bem como associá-lo diretamente aos arquivos de modelagem GMPL. Veja as opções no menu <tt>Tools > Windows Integration</tt>. <i>Atenção</i>: em algumas versões do Windows o GUSEK precisa ser executado com privilégios de Administrador para fazer a integração. Caso seja o executável seja movido para outro diretório é necessário reaplicar as estas opções para registrar o novo caminho.
+
+<h2 id="3">Guia Rápido de Utilização</h2>
+<h3 id="31">Interface</h3>
+<p>O GUSEK identifica o tipo de arquivo pela sua extensão. Diversos arquivos podem abertos simultamenamente no editor. Assim, para realizar o desenvolvimento é necessário que cada arquivo esteja salvo com a extensão correta:
+<ul>
+<li><tt>.mod</tt>: arquivo de modelo GMPL, eventualmente contendo dados;
+<li><tt>.dat</tt>: arquivo de dados GMPL;
+<li><tt>.out</tt>: arquivo de saída GLPK, contendo o sumário da resolução;
+<li><tt>.mps</tt>: arquivo de modelo no padrão Free MPS;
+<li><tt>.glp</tt>: arquivo de modelo no padrão GLPK LP/MIP;
+<li><tt>.lp</tt>: arquivo de modelo no padrão Cplex LP;
+</ul>
+<p>Em essência, os recursos referentes ao desenvolvimento de modelos concentram-se no menu <tt>Tools</tt> - os demais menus fornecem funcionalidades gerais do editor original SciTE. Alguns dos recursos mais úteis contam com atalhos de teclado (verifique as indicações no menu), botões para acesso direto (verifique as dicas ao deixar o cursor do mouse repousar sobre os botões) e menus contextuais da área de edição e das guias (tabs). Os principais comandos para modelgem são:
+<ul>
+<li><tt>Compile</tt>: Verifica a sintaxe do arquivo;
+<li><tt>Go</tt>: Executa o solver, iniciando a resolução do modelo corrente;
+<li><tt>Build GLPK LP/MIP</tt>: Gera o modelo expandido a partir do modelo atual (formato GLPK LP/MIP);
+<li><tt>Build Cplex LP</tt>: Gera o modelo expandido a partir do modelo atual (formato Cplex LP);
+<li><tt>Build MPS</tt>: Gera a matriz MPS a partir do modelo atual (formato Free MPS);
+<li><tt>Use External .dat</tt>: Habilita / desabilita o uso de arquivos de dados externos (vide <a href="#32">Modelos GMPL</a>);
+<li><tt>Set as Default .dat File</tt>: Define o arquivo de dados atual como "arquivo padrão de dados", forçando seu uso em qualquer modelo executado (vide <a href="#32">Modelos GMPL</a>);
+<li><tt>Add as Extra .dat File</tt>: Adiciona o arquivo de dados atual como "arquivo de dados auxiliar" (somente usado para vários arquivos de dados - vide <a href="#32">GMPL Models</a>);
+<li><tt>Clear Extra .dat Files</tt>: Limpa o registro dos "arquivos de dados auxiliares" (somente usado para vários arquivos de dados - vide <a href="#32">GMPL Models</a>);
+<li><tt>Generate Output File on Go</tt>: Habilita / desabilita a geração e exibição do arquivo de saída após a execução do modelo;
+<li><tt>Generate LP Sensitivity Analysis</tt>: Habilita / desabilita a geração e exibição do arquivo de análise de sensibilidade após a execução do modelo (somente LP);
+<li><tt>Use Improved MILP (All Cuts)</tt>: Habilita / desabilita o uso de parâmetros que melhoram o desempenho do solver em problemas MILP, incluindo todos os cortes. <i>Para usuários avançados</i>: estes parâmetros podem ser alterados individualmente no campo 1 em <tt>View > Parameters</tt>;
+<li><tt>Use with Free MPS Format</tt>: Usa o formato "Free MPS" ao invés do "Fixed MPS" para executar e gerar arquivos MPS;
+</ul>
+
+<h3 id="32">Modelos GMPL</h3>
+<p>Os modelos são desenvolvidos de acordo com a linguagem de modelagem própria do GLPK, a <a href="gmpl.pdf">GMPL</a> (GNU MathProg Language). Exemplos originalmente distribuídos com o solver são disponibilizados no subdiretório "examples" do pacote. Essencialmente, o modelo pode ter dois formatos:
+<h4 id="321">Modelo Único</h4>
+<p>Neste caso o modelo e os dados concentram-se em um único arquivo com extensão <tt>.mod</tt>. Usual em modelos didáticos ou com conjunto de dados único.
+<p>Antes de executar o modelo certifique-se que a opção <tt>Tools > Use External .dat</tt> esteja desmarcada (default).
+<h4 id="322">Modelo Segmentado</h4>
+<p>Neste caso o modelo encontra-se em um arquivo com extensão <tt>.mod</tt> enquanto os dados são fornecidos em um arquivo separado, com extensão <tt>.dat</tt>. Usual em modelos complexos ou com diversos estudos de caso.
+<p>Para executar o modelo é necessário marcar a opção <tt>Tools > Use External .dat</tt>. Neste caso é necessário que o arquivo de dados tenha o mesmo nome do modelo, diferenciando-se apenas a extensão (como em <tt>prob1.mod</tt> e <tt>prob1.dat</tt>).
+<h5 id="3221">Utilizando Um Arquivo de Dados Padrão</h5>
+<p>Como alternativa, a fim de faciliar o uso de arquivos de modelo/dados com nomes distintos, foi criado o conceito "arquivo de dados padrão", permitindo fixar um arquivo de dados para todas as próximas execuções (até que outro seja definido como padrão). Para tanto:
+<ul>
+<li>Abra os arquivos de modelo e de dados a serem utilizados;
+<li>Selecione um arquivo de dados e clique no menu <tt>Tools > Set as Default .dat File</tt> (presente também no menu contextual das guias);
+<li>Alterne para a guia de um modelo e solicite a execução;
+<li>Repita a operação para cada arquivo de dados/modelo desejado.
+</ul>
+<blockquote>
+<p><i>Observações:</i> 
+<ul>
+<li>Para retornar ao modo de uso de arquivos de mesmo nome deve-se desativar e reativar a opção <tt>Tools > Use External .dat</tt>;
+<li>É possível especificar vários arquivos de dados adicionais. Para isso ative a guia de cada arquivo <tt>.dat</tt> adicional desejado e selecione menu <tt>Tools > Add as Extra .dat File</tt>. Observe que, em relação à estrutura especificada no modelo, o conteúdo de todos arquivos de dados utilizados deve ser complementar e não redundante. Para desativar o uso de arquivos adicionais é necessário utilizar o menu <tt>Tools > Clear Extra .dat Files</tt>;
+<li>Para auxiliar o monitoramento dos arquivos de dados e parâmetros definidos: clique na barra de status para alterar entre os modos de exibição "dados de edição" e "parâmetros do GLPK".
+<li>Para usuários avançados: os parâmetros contendo o nome do arquivo de dados padrão e dos arquivos adicionais podem ser editados diretamente em <tt>View > Parameters</tt>, campos 2 e 3, respectivamente.
+</ul>
+</blockquote>
+
+<h3 id="33">Modelos MPS/LP</h3>
+<p>O Gusek também suporta o desenvolvimento de modelos MPS, GLPK LP/MIP e Cplex LP. Você pode editar, verificar, executar e converter modelos entre estes formatos utsando os itens do menu <tt>Tools</tt>.
+<p>O formato padrão adotado para modelos MPS é o "Fixed MPS". Você pode mudar isso em <tt>Tools > Work with Free MPS</tt> para rodar modelos "Free MPS". Este item também altera o tipo de arquivos gerados a partir de modelos GMPL e LP.
+
+<h2 id="4">Referências</h2>
+<p><a href="http://www.gnu.org/software/glpk">GLPK</a> - O solver livre LP/MILP GNU <span class=changelog>©2000 Andrew Makhorin</span>
+<p><a href="http://winglpk.sourceforge.net/">GLPK for Windows</a> - Executáveis do GLPK para Windows
+<p><a href="http://en.wikibooks.org/wiki/GLPK">GLPK Wikibook</a> - Documentação vasta não oficial sobre o GLPK e projetos relacionados
+<p><a href="http://www.mingw.org/">MinGW</a> - Compilador livre GCC portado para Windows
+<p><a href="http://pymprog.sourceforge.net/">PyMathProg</a> - Modelagem para GLPK em Python
+<p><a href="http://www.scintilla.org/SciTE.html">Sc1</a> - Versão compacta do editor livre SciTE <span class=changelog>©1998 Neil Hodgson</span>
+<p><a href="https://bitbucket.org/scite-ru/scite-ru.bitbucket.org/">Scite RU-Board</a> - Patches para melhorias e correções no SciTE
+
+<h2 id="5">Changelog</h2>
+<p>GUSEK 0.2.24 (19/03/2018)
+<p class=changelog>GLPK updated to 4.65.
+<p>GUSEK 0.2.23 (04/12/2017)
+<p class=changelog>GLPK updated to 4.64.
+<p>GUSEK 0.2.22 (01/12/2017)
+<p class=changelog>Minor fixes on run and convert models.
+<p>GUSEK 0.2.21 (02/08/2017)
+<p class=changelog>GLPK updated to 4.63.
+<p>GUSEK 0.2.20 (08/04/2016)
+<p class=changelog>GLPK updated to 4.60.
+<p>GUSEK 0.2.19 (11/11/2015)
+<p class=changelog>GLPK updated to 4.57.
+<p>GUSEK 0.2.18 (26/08/2014)
+<p class=changelog>GLPK updated to 4.55.
+<p>GUSEK 0.2.17 (01/04/2014)
+<p class=changelog>GLPK updated to 4.54.
+<p>GUSEK 0.2.16 (14/02/2014)
+<p class=changelog>GLPK updated to 4.53.
+<p>GUSEK 0.2.15 (19/07/2013)
+<p class=changelog>GLPK updated to 4.52.
+<p>GUSEK 0.2.14 (09/07/2013)
+<p class=changelog>GLPK updated to 4.51.
+<p>GUSEK 0.2.13 (16/08/2012)
+<p class=changelog>GLPK updated to 4.47.
+<p>GUSEK 0.2.12 (15/03/2011)
+<p class=changelog>GLPK updated to 4.45.
+<p>GUSEK 0.2.11 (07/06/2010)
+<p class=changelog>GLPK updated to 4.44.
+<p>GUSEK 0.2.10 (22/02/2010)
+<p class=changelog>Added support to GLPK LP/MIP format. Some tools itens modified (names, order and shortcuts). GLPK updated to 4.43.
+<p>GUSEK 0.2.9 (14/01/2010)
+<p class=changelog>GLPK updated to 4.42.
+<p>GUSEK 0.2.8 (30/12/2009)
+<p class=changelog>GLPK updated to 4.41. Added Java files support (as in native SciTE). Added <a href="http://www.gnuplot.info/">gnuplot</a> files support (testing - thanks to Noli Sicad).
+<p>GUSEK 0.2.7 (26/11/2009)
+<p class=changelog>GLPK updated to 4.40 - now GUSEK uses <a href="http://winglpk.sourceforge.net/">GLPK for Windows</a> pre-build GLPK binaries (thanks to Xypron). Added tips folder (gusek_tips), introducing useful samples to gusek users. Added python files support (as in native SciTE) for <a href="http://pymprog.sourceforge.net/">PyMathProg</a> modelling (testing).
+<p>GUSEK 0.2.6 (27/07/2009)
+<p class=changelog>GLPK updated to 4.39. Minor fix in windows integration.
+<p>GUSEK 0.2.5 (05/05/2009)
+<p class=changelog>GLPK updated to 4.38.
+<p>GUSEK 0.2.4 (03/04/2009)
+<p class=changelog>Bug correction: now "Stop Execution" really finish glpsol.exe process. GLPK updated to 4.37.
+<p>GUSEK 0.2.3 (06/02/2009)
+<p class=changelog>GLPK updated to 4.36.
+<p>GUSEK 0.2.2 (23/01/2009)
+<p class=changelog>Added sensitivity bounds menu option (thanks to Wendel de Melo for suggestion). GLPK updated to 4.35.
+<p>GUSEK 0.2.1 (10/12/2008)
+<p class=changelog>Improved output panel refresh time (thanks to Andrew Makhorin for GLPK patch). Improved support to MPS / Cplex LP files. Minor fixes and improvements. GLPK Reference Manual included for MPS and Cplex LP helps
+<p>GUSEK 0.2.0 (06/12/2008)
+<p class=changelog>First public release. Using GLPK 4.34.
+
+
+<p class="rodape">Last changed in 03/2018 by Luiz Bettoni
+
+<p style="text-align:center;font-size:70%;"><a href="http://sourceforge.net/">Project Web Hosted by <br><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=247228&amp;type=1" alt="SourceForge.net" border=0></a>
+</body>
+</html>

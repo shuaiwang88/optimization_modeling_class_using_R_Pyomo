@@ -1,0 +1,51 @@
+GUSEK (GLPK Under Scite Extended Kit) Version 0.2
+©2008 Luiz Bettoni <bettoni@sollve.com.br>
+
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	See the file COPYING for the GNU General Public License.
+
+
+GUSEK provide an open source LP/MILP IDE for Win32, 
+packing a custom version of the SciTE editor linked 
+to the GLPK standalone solver.
+
+See <gusek.html> for basic information on install and use Gusek.
+See <gmpl.pdf> for reference on GNU MathProg Language (GMPL).
+See <examples> folder for sample GMPL models.
+
+	Notes:
+	The help for GMPL and sample models bundled with GUSEK are
+	all from GLPK package original files.
+	See <http://www.gnu.org/software/glpk> for more info.
+	The <glpsol.exe> and <Gusek.exe> binaries was initially build with MinGW.
+	See <http://www.mingw.org> for more info.
+	Now GUSEK uses GLPK for Windows binaries.
+	See <http://winglpk.sourceforge.net> for more info.
+
+
+See GUSEK webpage <http://gusek.sourceforge.net>
+
+
+GUSEK was made with:
+
+	GLPK - the GNU LP / MILP solver Kit
+		Copyright (C) 2000-2010 Andrew Makhorin, <mao@mai2.rcnet.ru>
+		<http://www.gnu.org/software/glpk>
+
+	Sc1 - a single file executable from SciTE (SCIntilla based Text Editor)
+		Copyright (C) 1998-2003 Neil Hodgson, <neilh@scintilla.org>
+		<http://www.scintilla.org/SciTE.html>
+
+	SciTE Ru-Board Edition - patchs and enhancements to SciTE code
+		<http://scite-ru.googlecode.com>
+

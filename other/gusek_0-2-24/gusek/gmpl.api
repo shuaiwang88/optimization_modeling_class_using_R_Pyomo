@@ -1,0 +1,29 @@
+abs(x) absolute value
+atan(x) trigonometric arctangent arctan x (in radians)
+atan(y, x) trigonometric arctangent arctan y/x (in radians)
+card(x) cardinality (the number of elements) of set x
+ceil(x) smallest integer not less than x (“ceiling of x”)
+cos(x) trigonometric cosine cos x (in radians)
+floor(x) largest integer not greater than x (“floor of x”)
+exp(x) base-e exponential e^x
+length(x) length of character string x
+log(x) natural logarithm log x
+log10(x) common (decimal) logarithm log10 x
+max(x1, ..., xn) the largest of values x1, ..., xn
+min(x1, ..., xn) the smallest of values x1, ..., xn
+round(x) rounding x to nearest integer
+round(x, n) rounding x to n fractional decimal digits
+sin(x) trigonometric sine sin x (in radians)
+sqrt(x) square root of x
+substr(x, y) substring of x starting from position y
+substr(x, y, z) substring of x starting from position y and having length z
+trunc(x) truncating x to nearest integer
+trunc(x, n) truncating x to n fractional decimal digits
+Irand224() pseudo-random integer uniformly distributed in [0,2^24)
+Uniform01() pseudo-random number uniformly distributed in [0,1)
+Uniform(a, b) pseudo-random number uniformly distributed in [a, b)
+Normal01() Gaussian pseudo-random variate with mu = 0 and sigma = 1
+Normal(mu, sigma) Gaussian pseudo-random variate with given mu and sigma
+gmtime() get current numeric time, the number of seconds since 00:00:00 January 1 1970 UTC
+str2time(s,f) return numeric time from string time s formatted as f (use: %b %d %h %H %m %M %S %y %z)
+time2str(t,f) return string time from numeric time t formatted as f (use: %a %A %b %B %C %d %D %e %F %g %G %h %H %I %j %k \n %l %m %M %p %P %R %S %T %u %U %V %w %W %y %Y)

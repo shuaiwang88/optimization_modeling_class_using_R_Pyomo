@@ -1,0 +1,7 @@
+TODO
+. Improve documentation. 
+. Make custom toolbar buttons can assume a "pressed" state (useful to last buttons). Solved Issue 128 in scite-ru.
+. Update source based on lastest SciTE version.
+. Test PyMatProg under SciTE
+. Scite and Gusek (or even glpk/scite) use the same user options file (SciTEUser.properties), need to be renamed
+. Make a installer to users that do not want/need/undestand portable apps =)
